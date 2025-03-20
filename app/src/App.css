@@ -1,0 +1,392 @@
+/* Importing cyber/hacking style fonts */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap');
+
+/* Reset and Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Share Tech Mono', monospace;
+  background-color: #000;
+  color: rgb(9, 11, 118);
+  overflow-x: hidden;
+}
+
+/* Password Page Styles */
+.password-page {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 20px;
+}
+
+.password-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.terminal-container {
+  width: 90%;
+  max-width: 800px;
+  background-color: rgba(16, 16, 16, 0.9);
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 100, 255, 0.5);
+  overflow: hidden;
+  z-index: 10;
+  border: 1px solid rgb(18, 17, 61);
+  animation: flicker 0.3s infinite alternate;
+}
+
+@keyframes flicker {
+  0% {
+    box-shadow: 0 0 15px rgba(0, 100, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 100, 255, 0.6);
+  }
+}
+
+.terminal-header {
+  background-color: rgb(10, 80, 220);
+  color: #000;
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #333;
+}
+
+.terminal-body {
+  padding: 20px;
+  min-height: 400px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.terminal-text {
+  color: #00a2ff;
+  font-family: 'Share Tech Mono', monospace;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.input-line {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.prompt {
+  color: #00a2ff;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.terminal-input {
+  background-color: transparent;
+  border: none;
+  color: #00a2ff;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+  caret-color: #00a2ff;
+}
+
+.hidden-button {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Transition Page Styles */
+.transition-page {
+  height: 100vh;
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hacking-container {
+  max-width: 80%;
+  text-align: left;
+}
+
+.hacking-text {
+  color: #00a2ff;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 2rem;
+  text-shadow: 0 0 10px rgba(0, 150, 255, 0.7);
+  white-space: pre-wrap;
+  line-height: 1.5;
+  animation: textShadowPulse 1.5s infinite alternate;
+}
+
+@keyframes textShadowPulse {
+  0% {
+    text-shadow: 0 0 5px rgba(0, 150, 255, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(0, 150, 255, 1);
+  }
+}
+
+/* Inauguration Page Styles */
+.inauguration-page {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><text y="10" font-size="10" fill="blue">01001011</text><text y="20" font-size="10" fill="blue">10110011</text><text y="30" font-size="10" fill="blue">01110101</text><text y="40" font-size="10" fill="blue">11001010</text><text y="50" font-size="10" fill="blue">00101101</text><text y="60" font-size="10" fill="blue">10111010</text><text y="70" font-size="10" fill="blue">01010110</text><text y="80" font-size="10" fill="blue">11101001</text><text y="90" font-size="10" fill="blue">00111010</text><text y="100" font-size="10" fill="blue">10011101</text></svg>');
+}
+
+.matrix-background.active {
+  opacity: 0.2;
+}
+
+.inauguration-content {
+  position: relative;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.inauguration-content.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hacker-title {
+  font-family: 'VT323', monospace;
+  font-size: 3.5rem;
+  color: #00a2ff;
+  text-align: center;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+/* Glitch effect for the title */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -1px 0 #0044ff;
+  animation: glitch-animation 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: 1px 0 #00ccff;
+  animation: glitch-animation 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-animation {
+  0% {
+    clip: rect(64px, 9999px, 66px, 0);
+  }
+  5% {
+    clip: rect(30px, 9999px, 36px, 0);
+  }
+  10% {
+    clip: rect(80px, 9999px, 71px, 0);
+  }
+  /* Add more steps for smoother animation */
+  100% {
+    clip: rect(50px, 9999px, 40px, 0);
+  }
+}
+
+.hackfest-info {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.blink-text {
+  color: #00a2ff;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.info-text {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.terminal-window {
+  background-color: #111;
+  border: 1px solid #00a2ff;
+  border-radius: 5px;
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 150, 255, 0.3);
+}
+
+.terminal-content {
+  padding: 20px;
+  text-align: left;
+  color: #00a2ff;
+  font-family: 'Share Tech Mono', monospace;
+  line-height: 1.6;
+}
+
+.terminal-content p {
+  margin-bottom: 8px;
+}
+
+.blink-cursor::after {
+  content: '█';
+  animation: blink 1s infinite;
+}
+
+.hackfest-countdown {
+  padding: 30px 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 150, 255, 0.3);
+}
+
+.countdown-title {
+  color: #00a2ff;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.countdown-timer {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 3.5rem;
+  color: #00a2ff;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(0, 150, 255, 0.7);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hacker-title {
+    font-size: 2.2rem;
+  }
+  
+  .hacking-text {
+    font-size: 1.5rem;
+  }
+  
+  .terminal-body {
+    min-height: 300px;
+  }
+  
+  .countdown-timer {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .terminal-container {
+    width: 95%;
+  }
+  
+  .hacker-title {
+    font-size: 1.8rem;
+  }
+  
+  .terminal-content {
+    padding: 15px;
+    font-size: 14px;
+  }
+}
+
+/* Special Effects for Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00a2ff;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0077cc;
+}
+
+.innoverse-logo{
+  width:400px;
+  height:120px;
+  margin-left:265px;
+  margin-bottom:40px;
+}
