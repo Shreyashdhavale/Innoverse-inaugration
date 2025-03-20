@@ -4,6 +4,7 @@ import "./App.css";
 function InaugurationPage() {
   const [loaded, setLoaded] = useState(false);
   const [glitchText, setGlitchText] = useState("Welcome to Innoverse Hackfest!");
+  const [countdown, setCountdown] = useState("24:00:00");
   
   useEffect(() => {
     // Simulate loading
@@ -32,7 +33,31 @@ function InaugurationPage() {
       }
     }, 2000);
     
-    return () => clearInterval(glitchInterval);
+    // Countdown timer functionality
+    let totalSeconds = 10 * 60 * 60; // 24 hours in seconds
+    
+    const countdownInterval = setInterval(() => {
+      totalSeconds -= 1;
+      
+      if (totalSeconds <= 0) {
+        clearInterval(countdownInterval);
+        setCountdown("00:00:00");
+        // Maybe trigger some action when countdown ends
+      } else {
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+        
+        setCountdown(
+          `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+        );
+      }
+    }, 1000);
+    
+    return () => {
+      clearInterval(glitchInterval);
+      clearInterval(countdownInterval);
+    };
   }, []);
 
   return (
@@ -65,6 +90,13 @@ function InaugurationPage() {
               <p className="blink-cursor"> Hackfest initiated. Good luck!</p>
             </div>
           </div>
+        </div>
+
+        
+        <div className="hackfest-countdown">
+          <h2 className="countdown-title">HACKATHON COUNTDOWN</h2>
+          <div className="countdown-timer">{countdown}</div>
+          <p>Your time starts now. Make it count.</p>
         </div>
         
         
